@@ -1,0 +1,24 @@
+version: '2'
+services:
+    nginx:
+        build: ./nginx
+        ports:
+            - "80:80"
+        volumes_from:
+            - app
+        depends_on:
+            - php
+        links:
+            - php
+        container_name: "conteneur_nginx"
+    php:
+        build: ./php
+        volumes_from:
+            - app
+        expose:
+            - "9000"
+        container_name: "conteneur_php"
+    app:
+        image: "php:7.1-fpm"
+        volumes:
+            - /home/docker/app:/var/www/html
