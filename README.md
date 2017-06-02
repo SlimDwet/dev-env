@@ -7,5 +7,5 @@
 	<li>mkdir /home/docker/app/</li>
 	<li>mount -t vboxsf app /home/docker/app</li>
 </ul>
-Ce dossier sera utilisé pour la configuration <strong>volumes</strong> du docker-compose
+Ce dossier sera utilisé pour la configuration <strong>volumes</strong> du docker-compose<br>
 - Enregistrez puis redémarrez la VM
