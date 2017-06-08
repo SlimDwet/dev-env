@@ -10,3 +10,11 @@ RUN apt-get update
 RUN echo "Installation de Composer"
 RUN curl -s https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
+
+RUN echo "Creation du repertoire web"
+RUN mkdir -p /var/www/html
+RUN chown www-data:www-data /var/www/html
+WORKDIR /var/www/html
+
+RUN echo "Modification du compte"
+RUN usermod -u 1000 www-data
