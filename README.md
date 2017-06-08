@@ -5,7 +5,7 @@
 - Créer un fichier <code>sudo vi /var/lib/boot2docker/bootlocal.sh</code> qui contiendra les lignes suivantes :
 <ul>
 	<li>mkdir /home/docker/app/</li>
-	<li>mount -t vboxsf app /home/docker/app</li>
+	<li>mount -t vboxsf -o uid=1000,gid=50 app /home/docker/app</li>
 </ul>
 Ce dossier sera utilisé pour la configuration <strong>volumes</strong> du docker-compose<br>
 - Enregistrez puis redémarrez la VM
