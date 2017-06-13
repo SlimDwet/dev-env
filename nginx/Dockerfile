@@ -6,6 +6,7 @@ RUN usermod -u 1000 www-data
 
 RUN echo "Creation du vhost"
 COPY ./local.dev.conf /etc/nginx/conf.d/
+COPY ./symfony.dev.conf /etc/nginx/conf.d/
 
 RUN echo "Définition du work directory"
 WORKDIR /var/www/html
