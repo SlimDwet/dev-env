@@ -8,8 +8,10 @@ RUN usermod -u 1000 www-data
 RUN apt-get update && \
     apt-get install -y \
         zlib1g-dev \
+        libicu-dev \
     && docker-php-ext-install \
-        zip
+        zip \
+        intl
 
 RUN echo "Installation de Composer"
 RUN curl -s https://getcomposer.org/installer | php
