@@ -16,6 +16,8 @@ RUN apt-get update && \
         zip \
         intl \
         opcache \
+        pdo \
+        pdo_mysql \
     && docker-php-ext-enable xdebug
 
 RUN echo "Installation de Composer"
