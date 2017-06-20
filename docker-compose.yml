@@ -17,8 +17,26 @@ services:
             - app
         expose:
             - "9000"
+        links:
+            - mysql
         container_name: "conteneur_php"
+    mysql:
+        image: mysql
+        expose:
+            - "3306"
+        container_name: "conteneur_mysql"
+        volumes_from:
+            - data
+        environment:
+            MYSQL_DATABASE: dev-database
+            MYSQL_USER: evans
+            MYSQL_PASSWORD: evans
+            MYSQL_ROOT_PASSWORD: evans@root
     app:
         image: "php:7.1-fpm"
         volumes:
             - /home/docker/app:/var/www/html
+    data:
+        image: "php:7.1-fpm"
+        volumes:
+            - /home/docker/data:/var/lib/mysql
