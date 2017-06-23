@@ -1,16 +1,16 @@
 # Installation
 - Créer une VM : <code>docker-machine create -d virtualbox <i>machine_name</i></code>
-- Créer un répertoire <code>app</code> qui contiendra le code de votre application
-- Ajouter les répertoires <code>app</code> et <code>data</code> dans les dossiers partagés de la VM
+- Créer un répertoire <code>app</code> qui contiendra le code de votre application et un répertoire <code>db</code> qui contiendra les fichiers de BDD
+- Ajouter les répertoires <code>app</code> et <code>db</code> dans les dossiers partagés de la VM
 - Se connecter en SSH sur la machine : <code>docker-machine ssh <i>machine_name</i></code>
 - Créer un fichier <code>sudo vi /var/lib/boot2docker/bootlocal.sh</code> qui contiendra les lignes suivantes :
 - - \# On cree le repertoire qui contiendra les sources
 - - mkdir /home/docker/app
 - - \# On cree le repertoire qui contiendra les data (BDD)
-- - mkdir /home/docker/data
+- - mkdir /home/docker/db
 - - \# On monte le dossier partage dans le repertoire destine a contenir les sources
 - - mount -t vboxsf -o uid=1000,gid=50,umask=0000 app /home/docker/app
-- - \# On monte le dossier partage dans le repertoire destine a contenir les datas
-- - mount -t vboxsf -o uid=1000,gid=50,umask=0000 data /home/docker/data
-- Ce dossier sera utilisé pour la configuration <strong>volumes</strong> du docker-compose<br>
+- - \# On monte le dossier partage dans le repertoire destine a contenir les data
+- - mount -t vboxsf -o uid=1000,gid=50,umask=0000 db /home/docker/db
+- Ces dossiers seront utilisés pour la configuration <strong>volumes</strong> du docker-compose<br>
 - Enregistrer puis redémarrer la VM
