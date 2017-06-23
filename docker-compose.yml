@@ -32,6 +32,18 @@ services:
             MYSQL_USER: evans
             MYSQL_PASSWORD: evans
             MYSQL_ROOT_PASSWORD: evans@root
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - mysql
+        depends_on:
+            - mysql
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+        ports:
+            - "8080:80"
+        container_name: "conteneur_phpmyadmin"
     app:
         image: "php:7.1-fpm"
         volumes:
@@ -39,4 +51,4 @@ services:
     data:
         image: "php:7.1-fpm"
         volumes:
-            - /home/docker/data:/var/lib/mysql
+            - /home/docker/db/mysql/data:/var/lib/mysql
