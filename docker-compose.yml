@@ -44,6 +44,11 @@ services:
         ports:
             - "8080:80"
         container_name: "conteneur_phpmyadmin"
+    mongo:
+        image: mongo
+        expose:
+            - "27017"
+        container_name: "conteneur_mongo"
     app:
         image: "php:7.1-fpm"
         volumes:
@@ -51,4 +56,4 @@ services:
     data:
         image: "php:7.1-fpm"
         volumes:
-            - /home/docker/db/mysql/data:/var/lib/mysql
+            - /home/docker/db/mysql:/var/lib/mysql
